@@ -1,5 +1,7 @@
-#!/bin/bash -e
+#!/usr/bin/env bash
 # This script only works for Pi 2/3.
+
+set -eu
 
 if [ "$#" -ne 1 ]; then
   cat <<-ENDOFMESSAGE
@@ -28,19 +30,18 @@ install () {
 
   readonly KERNEL=kernel7
   echo -e "\ncopy files to / ..."
-  local foldername
-  foldername="${FILENAME%.*.*}"
-  cp -r "${foldername}"/root/* /
+  readonly FOLDERNAME=`basename "${FILENAME%.*.*}"`
+  cp -r "${FOLDERNAME}"/root/* /
 
   echo -e "\nbackup $KERNEL.img as $KERNEL-backup.img ..."
   cp /boot/$KERNEL.img /boot/$KERNEL-backup.img
 
   echo -e "\ncopy files to /boot/ ..."
-  cp -r "${foldername}"/boot/* /boot/
+  cp -r "${FOLDERNAME}"/boot/* /boot/
 
   # do clean up
   echo -e "\ndo clean up ..."
-  rm -rf "${foldername}"
+  rm -rf "${FOLDERNAME}"
 }
 
 while true; do
