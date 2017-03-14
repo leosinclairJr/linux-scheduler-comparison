@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<!--Phoronix Test Suite v7.0.0-->
+<PhoronixTestSuite>
+  <Generated>
+    <Title>latt-test</Title>
+    <LastModified>2017-03-13 16:58:54</LastModified>
+    <TestClient>Phoronix Test Suite v7.0.0 (Ringsaker)</TestClient>
+    <Description>ARMv7 rev 4 testing on Raspbian 8.0 via the Phoronix Test Suite.</Description>
+    <Notes></Notes>
+    <InternalTags></InternalTags>
+    <ReferenceID></ReferenceID>
+    <PreSetEnvironmentVariables></PreSetEnvironmentVariables>
+  </Generated>
+  <System>
+    <Identifier>ARMv7 rev 4</Identifier>
+    <Hardware>Processor: ARMv7 rev 4 @ 1.20GHz (4 Cores), Motherboard: BCM2709 Raspberry Pi 3 Model B Rev 1.2, Memory: 925MB, Disk: 16GB SU16G</Hardware>
+    <Software>OS: Raspbian 8.0, Kernel: 4.4.50-v7+ (armv7l), Compiler: GCC 4.9.2, File-System: ext4, Screen Resolution: 640x960</Software>
+    <User>ljishen</User>
+    <TimeStamp>2017-03-12 18:06:00</TimeStamp>
+    <TestClientVersion></TestClientVersion>
+    <Notes></Notes>
+    <JSON>{"compiler-configuration":"--build=arm-linux-gnueabihf --disable-browser-plugin --disable-libitm --disable-libquadmath --disable-sjlj-exceptions --enable-checking=release --enable-clocale=gnu --enable-gnu-unique-object --enable-gtk-cairo --enable-java-awt=gtk --enable-java-home --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-multiarch --enable-nls --enable-objc-gc --enable-plugin --enable-shared --enable-threads=posix --host=arm-linux-gnueabihf --target=arm-linux-gnueabihf --with-arch-directory=arm --with-arch=armv6 --with-float=hard --with-fpu=vfp -v","cpu-scaling-governor":"BCM2835 Freq ondemand"}</JSON>
+  </System>
+  <Result>
+    <Identifier>local/latt</Identifier>
+    <Title>Latt</Title>
+    <AppVersion>0.1</AppVersion>
+    <Arguments>-c8</Arguments>
+    <Description>Number Clients: 8</Description>
+    <Scale>ms</Scale>
+    <Proportion>LIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>ARMv7 rev 4</Identifier>
+        <Value>247459</Value>
+        <RawString>262728:229946:249703</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CC","compiler":"gcc","compiler-options":"-O2 -lrt -lm -lz -lpthread"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier></Identifier>
+    <Title>Latt</Title>
+    <AppVersion>0.1</AppVersion>
+    <Arguments>CPU Frequency (CPU0) -c8</Arguments>
+    <Description>CPU Frequency (CPU0) Monitor</Description>
+    <Scale>Megahertz</Scale>
+    <Proportion>LIB</Proportion>
+    <DisplayFormat>LINE_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>ARMv7 rev 4</Identifier>
+        <Value>600.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00</Value>
+        <RawString></RawString>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier></Identifier>
+    <Title>Latt</Title>
+    <AppVersion>0.1</AppVersion>
+    <Arguments>CPU Frequency (CPU1) -c8</Arguments>
+    <Description>CPU Frequency (CPU1) Monitor</Description>
+    <Scale>Megahertz</Scale>
+    <Proportion>LIB</Proportion>
+    <DisplayFormat>LINE_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>ARMv7 rev 4</Identifier>
+        <Value>600.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00</Value>
+        <RawString></RawString>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier></Identifier>
+    <Title>Latt</Title>
+    <AppVersion>0.1</AppVersion>
+    <Arguments>CPU Frequency (CPU2) -c8</Arguments>
+    <Description>CPU Frequency (CPU2) Monitor</Description>
+    <Scale>Megahertz</Scale>
+    <Proportion>LIB</Proportion>
+    <DisplayFormat>LINE_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>ARMv7 rev 4</Identifier>
+        <Value>600.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00</Value>
+        <RawString></RawString>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier></Identifier>
+    <Title>Latt</Title>
+    <AppVersion>0.1</AppVersion>
+    <Arguments>CPU Frequency (CPU3) -c8</Arguments>
+    <Description>CPU Frequency (CPU3) Monitor</Description>
+    <Scale>Megahertz</Scale>
+    <Proportion>LIB</Proportion>
+    <DisplayFormat>LINE_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>ARMv7 rev 4</Identifier>
+        <Value>600.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00,1200.00</Value>
+        <RawString></RawString>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier></Identifier>
+    <Title>Latt</Title>
+    <AppVersion>0.1</AppVersion>
+    <Arguments>CPU Usage (CPU0) -c8</Arguments>
+    <Description>CPU Usage (CPU0) Monitor</Description>
+    <Scale>Percent</Scale>
+    <Proportion>LIB</Proportion>
+    <DisplayFormat>LINE_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>ARMv7 rev 4</Identifier>
+        <Value>0.00,38.46,96.00,58.00,46.94,52.00,52.00,61.22,58.82,28.57,100.00,62.75</Value>
+        <RawString></RawString>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier></Identifier>
+    <Title>Latt</Title>
+    <AppVersion>0.1</AppVersion>
+    <Arguments>CPU Usage (CPU1) -c8</Arguments>
+    <Description>CPU Usage (CPU1) Monitor</Description>
+    <Scale>Percent</Scale>
+    <Proportion>LIB</Proportion>
+    <DisplayFormat>LINE_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>ARMv7 rev 4</Identifier>
+        <Value>0.00,33.33,48.00,100.00,46.00,56.00,54.00,62.75,100.00,100.00,2.00,68.00</Value>
+        <RawString></RawString>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier></Identifier>
+    <Title>Latt</Title>
+    <AppVersion>0.1</AppVersion>
+    <Arguments>CPU Usage (CPU2) -c8</Arguments>
+    <Description>CPU Usage (CPU2) Monitor</Description>
+    <Scale>Percent</Scale>
+    <Proportion>LIB</Proportion>
+    <DisplayFormat>LINE_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>ARMv7 rev 4</Identifier>
+        <Value>1.96,34.00,48.00,60.00,100.00,54.00,54.00,60.78,56.00,26.00,0.00,68.00</Value>
+        <RawString></RawString>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier></Identifier>
+    <Title>Latt</Title>
+    <AppVersion>0.1</AppVersion>
+    <Arguments>CPU Usage (CPU3) -c8</Arguments>
+    <Description>CPU Usage (CPU3) Monitor</Description>
+    <Scale>Percent</Scale>
+    <Proportion>LIB</Proportion>
+    <DisplayFormat>LINE_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>ARMv7 rev 4</Identifier>
+        <Value>0.00,100.00,48.98,64.71,51.02,100.00,100.00,100.00,58.00,32.00,0.00,64.00</Value>
+        <RawString></RawString>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier></Identifier>
+    <Title>Latt</Title>
+    <AppVersion>0.1</AppVersion>
+    <Arguments>CPU Usage (Summary) -c8</Arguments>
+    <Description>CPU Usage (Summary) Monitor</Description>
+    <Scale>Percent</Scale>
+    <Proportion>LIB</Proportion>
+    <DisplayFormat>LINE_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>ARMv7 rev 4</Identifier>
+        <Value>0.00,50.99,61.00,70.65,61.00,65.17,65.33,72.64,68.16,46.73,25.13,65.35</Value>
+        <RawString></RawString>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier></Identifier>
+    <Title>Latt</Title>
+    <AppVersion>0.1</AppVersion>
+    <Arguments>Drive Write Speed (mmcblk0) -c8</Arguments>
+    <Description>Drive Write Speed (mmcblk0) Monitor</Description>
+    <Scale>MB/s</Scale>
+    <Proportion>LIB</Proportion>
+    <DisplayFormat>LINE_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>ARMv7 rev 4</Identifier>
+        <Value>0.00,0.00,0.00,0.00,0.05,0.00,0.00,0.00,0.00,0.11</Value>
+        <RawString></RawString>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier></Identifier>
+    <Title>Latt</Title>
+    <AppVersion>0.1</AppVersion>
+    <Arguments>Memory Usage -c8</Arguments>
+    <Description>Memory Usage Monitor</Description>
+    <Scale>Megabytes</Scale>
+    <Proportion>LIB</Proportion>
+    <DisplayFormat>LINE_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>ARMv7 rev 4</Identifier>
+        <Value>54,68,68,68,68,57,68,67,68,62,70,70,70,61</Value>
+        <RawString></RawString>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier></Identifier>
+    <Title>Latt</Title>
+    <AppVersion>0.1</AppVersion>
+    <Arguments>System Temperature -c8</Arguments>
+    <Description>System Temperature Monitor</Description>
+    <Scale>Celsius</Scale>
+    <Proportion>LIB</Proportion>
+    <DisplayFormat>LINE_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>ARMv7 rev 4</Identifier>
+        <Value>53.2,55.8,58.0,57.5,56.9,56.4,58.5,59.6,60.1,57.5,59.1,60.1,60.1,60.7</Value>
+        <RawString></RawString>
+      </Entry>
+    </Data>
+  </Result>
+</PhoronixTestSuite>
