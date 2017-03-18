@@ -15,19 +15,15 @@ from retrive_info import *
 x_name = [] # this is the names on x-axis
 for name in score_dict:
     x_name.append(name)
-del x_name[3] # there is a wrong name here
-del x_name[1] # delete c-ray
-del x_name[1] # delete 7-zip 
-del x_name[2] # delete FFmpeg
+x_name[1] = "7-Zip"
+
 N = len(x_name) # this is the number of 
-print(x_name)
+#print(x_name)
 latt_p = [] # the policies of latt
 latt_score = [] # the scores of latt
 for item in score_dict['Latt']:
     latt_p.append(item[1])
     latt_score.append(int(item[2]))
-#print(latt_p)
-#print(latt_score)
 
 cray_p = [] # the policies of C-Ray
 cray_score = [] # the scores of C-Ray
@@ -35,8 +31,6 @@ for item in score_dict['C-Ray']:
     #print(item[2])
     cray_p.append(item[1])
     cray_score.append(float(item[2]))
-#print(cray_score)
-#print(latt_score)
 
 sevenzip_p = [] # the policies of 7-zip
 sevenzip_score = [] # the scores of 7-zip
@@ -44,74 +38,93 @@ for item in score_dict['7-Zip Compression']:
     #print(item)
     sevenzip_p.append(item[1])
     sevenzip_score.append(int(item[2]))
-#print(sevenzip_score)
 
+# hackbench has 4 configs
+hackbench_c = [] # configs of Hackbench
 hackbench_p = [] # the policies of Hackbench
 hackbench_score = [] # the scores of Hackbench
-for item in score_dict['Hackbench']:
+for i, item in enumerate(score_dict['Hackbench']):
     #print(item)
+    if i%7 == 0:
+        hackbench_c.append(item[0])
     hackbench_p.append(item[1])
     hackbench_score.append(float(item[2]))
-#print(hackbench_score)
-
+#print(hackbench_c)
+#print(score_dict['Hackbench'])
+print(hackbench_score)
 ff_p = [] # the policies of FFmpeg
 ff_score = [] # the scores of FFmpeg
 for item in score_dict['FFmpeg']:
     #print(item)
     ff_p.append(item[1])
     ff_score.append(float(item[2]))
-#print(ff_score)
 
+#john the ripper has 3 configs
+jtr_c = [] # the configs of John The Ripper
 jtr_p = [] # the policies of John The Ripper
 jtr_score = [] # the scores of John The Ripper
-for item in score_dict['John The Ripper']:
+for i, item in enumerate(score_dict['John The Ripper']):
     #print(item)
+    if i%7 == 0:
+        jtr_c.append(item[0])
     jtr_p.append(item[1])
     jtr_score.append(int(item[2]))
-#print(jtr_score)
+#print(score_dict['John The Ripper'])
+#print(jtr_c)
+
+# modify x_name with configs
+#print(x_name)
+x_name[2], x_name[3] = x_name[3], x_name[2]
+x_name[3] = "HB1"
+x_name[4] = "JTR1"
+x_name.append("HB3")
+x_name.append("HB4")
+x_name.append("HB2")
+x_name.append("JTR2")
+x_name.append("JTR3")
+x_name[7], x_name[4] = x_name[4], x_name[7]
+#print(x_name)
 
 # rearrange scores
 conf_list1 = []
 num_config = len(latt_score)
+#print(num_config)
 for i in range(0,num_config):
     temp_list = []
     temp_list.append(math.log2(latt_score[i]))
+    temp_list.append(math.log2(sevenzip_score[i]))
+    temp_list.append(math.log2(ff_score[i]))
     temp_list.append(math.log2(hackbench_score[i]))
     temp_list.append(math.log2(jtr_score[i]))
+    temp_list.append(math.log2(hackbench_score[i+14]))
+    temp_list.append(math.log2(hackbench_score[i+21]))
+    temp_list.append(math.log2(hackbench_score[i+7]))
+    temp_list.append(math.log2(jtr_score[i+7]))
+    temp_list.append(math.log2(jtr_score[i+14]))
+    temp_list[4], temp_list[7] = temp_list[7], temp_list[4]
     conf_list1.append(temp_list)
 print(conf_list1)
-print(num_config)
+print(len(conf_list1))
+
 # plotting
-ind = np.arange(N)  # the x locations for the groups
-width = 0.1      # the width of the bars
+#ind = np.arange(N+5)  # the x locations for the groups
+ind =  np.array([0,2,4,6,8,10,12,14,16,18])
+print(ind)
+width = 0.15      # the width of the bars
 
 fig, ax = plt.subplots()
 for i in range(0,num_config):
-    ax.bar(ind+(i-1)*width, conf_list1[i], width)
-#rects1 = ax.bar(ind, conf_list1[0], width, color='r')
-'''
-p2_means = (25, 32, 34, 20, 25)
-#p2_std = (3, 5, 2, 3, 3)
-rects2 = ax.bar(ind, p2_means, width, color='b')
+    ax.bar(ind+(i-3)*width, conf_list1[i], width,label=latt_p[i])
 
-p3_means = (20, 35, 30, 35, 27)
-#p1_std = (2, 3, 4, 1, 2)
-rects3 = ax.bar(ind + width, p3_means, width, color='y')
 
-p4_means = (25, 32, 34, 20, 25)
-#p2_std = (3, 5, 2, 3, 3)
-rects4 = ax.bar(ind + width*2, p4_means, width, color='g')
-
-p5_means = (25, 32, 34, 20, 25)
-#p2_std = (3, 5, 2, 3, 3)
-rects5 = ax.bar(ind + width*2, p5_means, width, color='g')
-'''
 # add some text for labels, title and axes ticks
-ax.set_ylabel('Scores')
-ax.set_title('Benchmark')
-ax.set_xticks(ind + width / N)
+ax.set_ylabel('Benchmark Scores(log2)')
+ax.set_title('Benchmark Tools')
+ax.set_xticks(ind + width / (N+5))
 #ax.set_xticklabels(('Latt', 'C-Ray', '7-Zip', 'Hackbench', 'FFmpeg', 'John The Ripper'))
 ax.set_xticklabels(x_name)
+#ax.legend()
+ax.legend(loc='best')
 #ax.legend((rects1[0], rects2[0], rects3[0], rects4[0], rects5[0]), ('b1', 'p2', 'p3', 'p4', 'p5'))
 
 '''
