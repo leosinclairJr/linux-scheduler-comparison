@@ -4,8 +4,8 @@ test: auto-retrive info
 '''
 import os, glob, collections
 import xml.etree.ElementTree as ET
-from lxml import etree
-from io import StringIO, BytesIO
+#from lxml import etree
+#from io import StringIO, BytesIO
 # score_dict is used to store scores
 score_dict = collections.defaultdict(list)
 
@@ -39,7 +39,7 @@ def get_data(file):
 						print(child.find('Description').text)
 						ply = child.find('Description').text'''
 						#con_dict[child.find('Description').text]
-					score_dict[child.find('Title').text].append([cnf, gchild.find('Identifier').text, gchild.find('Value').text.split(',')])
+					score_dict[child.find('Title').text].append([cnf, gchild.find('Identifier').text, gchild.find('Value').text])
 			elif child.find('DisplayFormat').text == "LINE_GRAPH":
 				#print(child.)
 				#print(child.getpath())
@@ -61,5 +61,5 @@ for file in glob.glob('*.xml'):
 	get_data(file)
 
 #print(score_dict['Latt'][0][1])
-print(bm_dict['cpu']['Hackbench'][0][2][0])
+#print(bm_dict['cpu']['Hackbench'])
 
