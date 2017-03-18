@@ -8,6 +8,7 @@ For class project 221 2017 winter
 import matplotlib.pyplot as plt
 import matplotlib.mlab as mlab
 import numpy as np
+import math
 from retrive_info import *
 
 # Latt, C-Ray, 7-Zip Compression, Hackbench, FFmpeg, John The Ripper
@@ -73,17 +74,21 @@ for item in score_dict['John The Ripper']:
 conf_list1 = []
 num_config = len(latt_score)
 for i in range(0,num_config):
-    conf_list1.append(latt_score[i])
-    conf_list1.append(hackbench_score[i])
-    conf_list1.append(jtr_score[i])
-#print(conf_list1)
+    temp_list = []
+    temp_list.append(math.log2(latt_score[i]))
+    temp_list.append(math.log2(hackbench_score[i]))
+    temp_list.append(math.log2(jtr_score[i]))
+    conf_list1.append(temp_list)
+print(conf_list1)
 print(num_config)
 # plotting
 ind = np.arange(N)  # the x locations for the groups
-width = 0.15      # the width of the bars
+width = 0.1      # the width of the bars
 
 fig, ax = plt.subplots()
-#rects1 = ax.bar(left=1, 1+width, latt_score, width, color='r')
+for i in range(0,num_config):
+    ax.bar(ind+(i-1)*width, conf_list1[i], width)
+#rects1 = ax.bar(ind, conf_list1[0], width, color='r')
 '''
 p2_means = (25, 32, 34, 20, 25)
 #p2_std = (3, 5, 2, 3, 3)
@@ -104,7 +109,7 @@ rects5 = ax.bar(ind + width*2, p5_means, width, color='g')
 # add some text for labels, title and axes ticks
 ax.set_ylabel('Scores')
 ax.set_title('Benchmark')
-#ax.set_xticks(ind + width / 2)
+ax.set_xticks(ind + width / N)
 #ax.set_xticklabels(('Latt', 'C-Ray', '7-Zip', 'Hackbench', 'FFmpeg', 'John The Ripper'))
 ax.set_xticklabels(x_name)
 #ax.legend((rects1[0], rects2[0], rects3[0], rects4[0], rects5[0]), ('b1', 'p2', 'p3', 'p4', 'p5'))
@@ -124,6 +129,6 @@ autolabel(rects1)
 autolabel(rects2)
 '''
 
-#plt.show()
+plt.show()
 
 
