@@ -152,11 +152,15 @@ for i in range(0,num_config):
 #ind = np.arange(N+5)  # the x locations for the groups
 ind =  np.array([0,2,4,6,8,10,12,14,16,18])
 #print(ind)
-width = 0.15      # the width of the bars
+width = 0.15 # the width of the bars
 
+colormap = plt.cm.gist_ncar
+cmaps = [colormap(i) for i in np.linspace(0, 0.9, 7)]
+#color={colormap(i) for i in np.linspace(0, 0.9, 7)}
+print(colormap)
 fig, ax = plt.subplots()
 for i in range(0,num_config):
-    ax.bar(ind+(i-3)*width, conf_list1[i], width,label=latt_p[i])
+    ax.bar(ind+(i-3)*width, conf_list1[i], width,label=latt_p[i], color=cmaps[i])
 
 
 # add some text for labels, title and axes ticks
