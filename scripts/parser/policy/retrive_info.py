@@ -46,13 +46,13 @@ def get_data(file):
 				#print(child.find('Arguments').text)
 				if "Memory Usage" in child.find('Arguments').text:
 					for gchild in child.find('Data'):
-						mem_dict[child.find('Title').text].append([cnf, gchild.find('Identifier').text, gchild.find('Value').text.split(',')])
+						mem_dict[child.find('Title').text].append([cnf, gchild.find('Identifier').text, [float(x) for x in gchild.find('Value').text.split(',')]])
 				if "CPU Usage (Summary)" in child.find('Arguments').text:
 					for gchild in child.find('Data'):
-						cpu_dict[child.find('Title').text].append([cnf, gchild.find('Identifier').text, gchild.find('Value').text.split(',')])
+						cpu_dict[child.find('Title').text].append([cnf, gchild.find('Identifier').text, [float(x) for x in gchild.find('Value').text.split(',')]])
 				if "System Temperature" in child.find('Arguments').text:
 					for gchild in child.find('Data'):
-						tem_dict[child.find('Title').text].append([cnf, gchild.find('Identifier').text, gchild.find('Value').text.split(',')])
+						tem_dict[child.find('Title').text].append([cnf, gchild.find('Identifier').text, [float(x) for x in gchild.find('Value').text.split(',')]])
 		bm_dict["memory"] = mem_dict
 		bm_dict["cpu"] = cpu_dict
 		bm_dict["temperature"] = tem_dict

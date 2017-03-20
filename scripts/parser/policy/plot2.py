@@ -11,28 +11,37 @@ import math
 from retrive_info import *
 
 # there are 7 configs, bm_dict['cpu']['Latt'][0], bm_dict['cpu']['Latt'][1]...
-print(bm_dict['cpu']['Latt'][0])
+#print(bm_dict['cpu']['Latt'][0])
 # the values(list) of each config bm_dict['cpu']['Latt'][0][2]
-print(bm_dict['cpu']['Latt'][0][2])
-fig = plt.figure(figsize=(10, 8))
+#print(bm_dict['cpu']['Latt'][0][2])
+# convert the string to int
 
-sub1 = fig.add_subplot(221) # equivalent to: plt.subplot(2, 2, 1)
-sub1.set_title('current')
-#for v in test:
-#   sub1.plot(v)
-#sub1.plot(test)
-#sub1.plot(t2)
+#figsize=(20, 10)
+fig = plt.figure()
 
-sub2 = plt.subplot(222)
-sub2.set_title('CPU usage')
-#sub2.set_xticks(())
-#sub2.set_yticks(())
-#sub2.text(0.5, 0.5, 'subplot(2,2,2)', ha='center', va='center', alpha=.5)
-sub3 = plt.subplot(223)
-sub3.set_title('memory usage')
+colormap = plt.cm.gist_ncar
+cmaps = [colormap(i) for i in np.linspace(0, 0.9, 7)]
 
-sub4 = fig.add_subplot(224)
-sub4.set_title('other')
+sub1 = fig.add_subplot(121) # equivalent to: plt.subplot(2, 2, 1)
+sub1.set_title('CPU usage')
+
+sub1_policy = []
+for i,v in enumerate(bm_dict['cpu']['Latt']):
+	sub1_policy.append(v[1])
+	sub1.plot(v[2],color=cmaps[i],label=sub1_policy[i])
+#sub1.set_xticklabels(sub1_policy,size='x-small',stretch='extra-condensed', rotation=20, ha='right')
+sub1.legend()
 
 
-#plt.show()
+sub2 = plt.subplot(122)
+sub2.set_title('memory usage')
+
+sub2_policy = []
+for i,v in enumerate(bm_dict['memory']['Latt']):
+	sub2_policy.append(v[1])
+	sub2.plot(v[2],color=cmaps[i],label=sub2_policy[i])
+#sub1.set_xticklabels(sub1_policy,size='x-small',stretch='extra-condensed', rotation=20, ha='right')
+sub2.legend()
+
+
+plt.show()
