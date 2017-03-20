@@ -8,16 +8,11 @@ import matplotlib.pyplot as plt
 import matplotlib.mlab as mlab
 import numpy as np
 import math
+import statistics
 from retrive_info import *
 
-# there are 7 configs, bm_dict['cpu']['Latt'][0], bm_dict['cpu']['Latt'][1]...
-#print(bm_dict['cpu']['Latt'][0])
-# the values(list) of each config bm_dict['cpu']['Latt'][0][2]
-#print(bm_dict['cpu']['Latt'][0][2])
-# convert the string to int
-
-#figsize=(20, 10)
-fig = plt.figure()
+# plot
+fig = plt.figure(figsize=(20, 10))
 
 colormap = plt.cm.gist_ncar
 cmaps = [colormap(i) for i in np.linspace(0, 0.9, 7)]
@@ -26,22 +21,37 @@ sub1 = fig.add_subplot(121) # equivalent to: plt.subplot(2, 2, 1)
 sub1.set_title('CPU usage')
 
 sub1_policy = []
+cpu_mean = []
+cpu_std = []
 for i,v in enumerate(bm_dict['cpu']['Latt']):
 	sub1_policy.append(v[1])
+	cpu_mean.append(round(statistics.mean(v[2]),2))
+	cpu_std.append(round(statistics.stdev(v[2]),2))
 	sub1.plot(v[2],color=cmaps[i],label=sub1_policy[i])
-#sub1.set_xticklabels(sub1_policy,size='x-small',stretch='extra-condensed', rotation=20, ha='right')
-sub1.legend()
-
-
+#sub1.legend()
+print(sub1_policy)
 sub2 = plt.subplot(122)
 sub2.set_title('memory usage')
 
 sub2_policy = []
+mm_mean = []
+mm_std = []
+plt2 = []
 for i,v in enumerate(bm_dict['memory']['Latt']):
 	sub2_policy.append(v[1])
-	sub2.plot(v[2],color=cmaps[i],label=sub2_policy[i])
+	mm_mean.append(round(statistics.mean(v[2]),2))
+	mm_std.append(round(statistics.stdev(v[2]),2))
+	plotobj = sub2.plot(v[2],color=cmaps[i],label=sub2_policy[i])
+	plt2.append(plotobj[0])
 #sub1.set_xticklabels(sub1_policy,size='x-small',stretch='extra-condensed', rotation=20, ha='right')
-sub2.legend()
+sub2.legend(bbox_to_anchor=(1, 1.02))
 
+'''
+# create a legend label array 
+label_arr = []
+for i in range(0,7):
+	label_arr.append('('+str(cpu_mean[i])+","+str(cpu_std[i])+')('+str(mm_mean[i])+","+str(mm_std[i])+')')
 
+fig.legend(loc='best',handles=plt2,labels=label_arr)
+'''
 plt.show()
