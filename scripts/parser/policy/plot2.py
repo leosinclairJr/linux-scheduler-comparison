@@ -11,8 +11,9 @@ import math
 import statistics
 from retrive_info import *
 
-# plot
-fig = plt.figure(figsize=(20, 10))
+#['Latt', '7-Zip Compression', 'Hackbench', 'FFmpeg', 'John The Ripper']
+# plot figsize=(10, 10)
+fig = plt.figure()
 
 colormap = plt.cm.gist_ncar
 cmaps = [colormap(i) for i in np.linspace(0, 0.9, 7)]
@@ -23,7 +24,7 @@ sub1.set_title('CPU usage')
 sub1_policy = []
 cpu_mean = []
 cpu_std = []
-for i,v in enumerate(bm_dict['cpu']['Latt']):
+for i,v in enumerate(bm_dict['cpu']['FFmpeg']):
 	sub1_policy.append(v[1])
 	cpu_mean.append(round(statistics.mean(v[2]),2))
 	cpu_std.append(round(statistics.stdev(v[2]),2))
@@ -37,7 +38,7 @@ sub2_policy = []
 mm_mean = []
 mm_std = []
 plt2 = []
-for i,v in enumerate(bm_dict['memory']['Latt']):
+for i,v in enumerate(bm_dict['memory']['FFmpeg']):
 	sub2_policy.append(v[1])
 	mm_mean.append(round(statistics.mean(v[2]),2))
 	mm_std.append(round(statistics.stdev(v[2]),2))
